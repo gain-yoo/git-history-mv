@@ -3,6 +3,6 @@ provider "aws" {
 }
 
 resource "aws_iam_user" "myiam" {
-  count = 3
-  name  = "yooga.${count.index}"
+  count = length(var.user_names)
+  name  = var.user_names[count.index]
 }
